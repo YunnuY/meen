@@ -2,14 +2,13 @@
 
 Mongo-Ember-Express-Node full-stack javascript open-source solution.
 
-After being an ember and rails developer for some time, i find that i prefer JavaScript(nodejs) solutions than others. 
-Both frontend and backend follow the same philosophy, both work perfect with json data, and the community is dynamic and creative. Pure javascritp solution seems good in the web world.
+After being an ember and rails developer for some time, i find that pure javascript solutions is more and more attractive. 
+Both frontend and backend follow the same philosophy, all things work perfect with json data, and most of all, the community is dynamic and creative. Pure javascritp solution sounds good in the web world.
 
-After some search, i found there has been some similiar solutions like [meanjs](https://github.com/meanjs/mean) and 
-[hackathon](https://github.com/sahat/hackathon-starter). But the first one using angularjs as frontend framwork but i prefer
-ember, and the latter one is focus on backend side.
+After some search, i found there have been some similiar solutions like [meanjs](https://github.com/meanjs/mean) and 
+[hackathon](https://github.com/sahat/hackathon-starter). However the first one using angularjs as frontend framwork while i prefer ember, and the latter one only focus on backend side.
 
-The purpose is using best tools in js community to build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
+The purpose of this project is to build a robust framework using best tools in js community, to support daily development needs, and help developers use better practices while working with popular javascript components.
 
 
 ## architecture overview
