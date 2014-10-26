@@ -7,7 +7,8 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('users', function() { });
-  this.route('not-found', { path: '/*path' });
+
+  this.route('error', { path: '/*path' });
 });
 
 export default Router;
