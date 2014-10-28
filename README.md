@@ -26,6 +26,9 @@ The purpose of this project is to build a robust framework using best tools in j
 
 **[Nodejs](http://nodejs.org/)** the platform
 
+The folder structure are following the "nature" way, express app as the parent project, ember app in express's public folder.
+let express serve complied ember static files. This solution is easy but have duplicated package.json(so node_modules as well), and cli commands works separated so no communication, for example 'ember build --wath' and can not notify express that
+ember is rebuild. Need improment later. 
 
 ## Prerequisites
 Make sure you have installed all prerequisites on your development machine.
@@ -36,7 +39,6 @@ Make sure you have installed all prerequisites on your development machine.
 ```
 $ npm install -g bower
 ```
-
 
 ## Quick Install
 Clone this repo and install Node.js dependencies, in the application folder run this in the command-line:
@@ -49,8 +51,13 @@ $ npm install
 
 After the install process is over, you'll be able to run your application.
 
+
 ```
+# open terminal, at project root.
 npm start
+# open another terminal, at project root.
+cd public
+ember build --watch
 ```
 
 Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000)
