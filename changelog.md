@@ -1,1 +1,2 @@
-## 2014-10-28
+- add ember server --proxy to .ember-cli
+- run express with nodemon
