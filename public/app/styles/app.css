@@ -1,2 +1,5 @@
-@import "app/fixed-top-sticky-footer.css";
 @import "app/error.css";
+
+body {
+  padding-top: 70px;
+}
