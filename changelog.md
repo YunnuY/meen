@@ -1,2 +1,3 @@
+- add bootstrap and logo
 - add ember server --proxy to .ember-cli
 - run express with nodemon

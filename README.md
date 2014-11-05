@@ -20,6 +20,22 @@ The purpose of this project is to build a robust framework using best tools in j
 
 **[express](http://expressjs.com)** the app server
 
+the express app follow below folder structure  
+* [server.js](#serverjs)
+* app
+  * [models](#models)
+  * [views](#views)
+  * [controllers](#controllers)
+  * mailers
+* config
+  * [routes](#routes)
+  * express
+  * passport
+  * environment
+  * using middlewares
+  * using route middlewares
+* tests
+
 **[mongoDB](http://www.mongodb.org/)** the database
 
 - [mongoose](http://mongoosejs.com/) the ODM tool

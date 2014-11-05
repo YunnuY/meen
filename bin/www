@@ -1,9 +1,36 @@
 #!/usr/bin/env node
 var debug = require('debug')('meen');
 var app = require('../app');
+var fs = require('fs');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var config = require('config');
+
+// Connect to mongodb
+var connect = function () {
+  var options = { server: { socketOptions: { keepAlive: 1 } } };
+  mongoose.connect(config.db, options);
+};
+connect();
+
+mongoose.connection.on('error', console.log);
+mongoose.connection.on('disconnected', connect);
+
+// Bootstrap models
+fs.readdirSync(__dirname + '/../app/models').forEach(function (file) {
+  if (~file.indexOf('.js')) require(__dirname + '/../app/models/' + file);
+});
+
+// Bootstrap passport config
+require('../config/passport')(passport, config);
+
+// Bootstrap application settings
+require('../config/express')(app, passport);
+
+// Bootstrap routes
+require('../config/routes')(app, passport);
 
 app.set('port', process.env.PORT || 3000);
-
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
