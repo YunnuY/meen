@@ -36,9 +36,9 @@ module.exports = function (app, passport) {
   // Static files middleware
   app.use(express.static(path.join(__dirname, '../public/dist')));
 
-  // app.use('/*', function(req, res) {
-  //   res.sendFile(path.join(__dirname, 'public/dist/index.html'));
-  // });
+  app.use('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
+  });
 
 
   // Use winston on production
@@ -58,7 +58,6 @@ module.exports = function (app, passport) {
   // Don't log during tests
   // Logging middleware
   if (env !== 'test') app.use(morgan(log));
-
 
   // bodyParser should be above methodOverride
   app.use(bodyParser.json());
