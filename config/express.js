@@ -12,7 +12,6 @@ var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var csrf = require('csurf');
-var swig = require('swig');
 
 var mongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
@@ -60,24 +59,6 @@ module.exports = function (app, passport) {
   // Logging middleware
   if (env !== 'test') app.use(morgan(log));
 
-  // Swig templating engine settings
-  if (env === 'development' || env === 'test') {
-    swig.setDefaults({
-      cache: false
-    });
-  }
-
-  // set views path, template engine and default layout
-  app.engine('html', swig.renderFile);
-  app.set('views', config.root + '/app/views');
-  app.set('view engine', 'html');
-
-  // expose package.json to views
-  app.use(function (req, res, next) {
-    res.locals.pkg = pkg;
-    res.locals.env = env;
-    next();
-  });
 
   // bodyParser should be above methodOverride
   app.use(bodyParser.json());
