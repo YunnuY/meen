@@ -80,7 +80,9 @@ module.exports = function (app, passport) {
     store: new mongoStore({
       url: config.db,
       collection : 'sessions'
-    })
+    }),
+    saveUninitialized: true,
+    resave: true
   }));
 
   // use passport session
