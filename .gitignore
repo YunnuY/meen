@@ -1,9 +1,9 @@
 *.log
 
-/bower_components
-/connect.lock
-/coverage
-/dist
-/node_modules
-/.sass-cache
-/tmp
+bower_components
+connect.lock
+coverage
+dist
+node_modules
+.sass-cache
+tmp
