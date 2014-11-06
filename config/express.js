@@ -2,7 +2,7 @@
 /**
  * Module dependencies.
  */
-
+var path = require('path');
 var express = require('express');
 var session = require('express-session');
 var compression = require('compression');
@@ -35,7 +35,12 @@ module.exports = function (app, passport) {
   }));
 
   // Static files middleware
-  app.use(express.static(config.root + '/public'));
+  app.use(express.static(path.join(__dirname, '../public/dist')));
+
+  // app.use('/*', function(req, res) {
+  //   res.sendFile(path.join(__dirname, 'public/dist/index.html'));
+  // });
+
 
   // Use winston on production
   var log;
@@ -77,7 +82,7 @@ module.exports = function (app, passport) {
   // bodyParser should be above methodOverride
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
-  
+
   app.use(methodOverride(function (req, res) {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
       // look in urlencoded POST bodies and delete it

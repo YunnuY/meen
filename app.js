@@ -3,11 +3,6 @@ var path = require('path');
 
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'public/dist')));
-
-app.use('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public/dist/index.html'));
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
