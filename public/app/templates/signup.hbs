@@ -1,8 +1,18 @@
-<form class="form-signin" role="form">
+<form {{action "signup" on="submit"}} class="form-signin" role="form">
   <h2 class="form-signin-heading">welcome sign up</h2>
-  <input type="email" class="form-control" placeholder="Email address" required autofocus>
-  <input type="password" class="form-control" placeholder="Password" required>
-  <input type="password" class="form-control confirm" placeholder="Confirm Password" required>
+  {{input type="email" value=email class="form-control" placeholder="Email address" required=true autofocus=true}}
+  {{input type="password" value=password class="form-control" placeholder="Password" required=true}}
+  {{input type="password" value=confirm class="form-control" placeholder="Confirm password" required=true}}
   <br/>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+  <br/>
+  {{#if error}}
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    {{error}}
+  </div>
+  {{/if}}
 </form>
+
