@@ -17,7 +17,7 @@ var mongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
 var winston = require('winston');
 var helpers = require('view-helpers');
-var config = require('config');
+var configEnv = require('./env.js');
 var pkg = require('../package.json');
 
 var env = process.env.NODE_ENV || 'development';
@@ -73,7 +73,7 @@ module.exports = function (app, passport) {
   app.use(session({
     secret: pkg.name,
     store: new mongoStore({
-      url: config.db,
+      url: configEnv.db,
       collection : 'sessions'
     }),
     saveUninitialized: true,

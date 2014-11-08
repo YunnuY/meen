@@ -4,7 +4,7 @@
  */
 
 var mongoose = require('mongoose');
-var home = require('home');
+var home = require('../app/controllers/home');
 
 /**
  * Expose

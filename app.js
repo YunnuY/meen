@@ -2,14 +2,14 @@ var express = require('express');
 var fs = require('fs');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var config = require('config');
+var env = require('./config/env');
 
 var app = express();
 
 // Connect to mongodb
 var connect = function () {
   var options = { server: { socketOptions: { keepAlive: 1 } } };
-  mongoose.connect(config.db, options);
+  mongoose.connect(env.db, options);
 };
 connect();
 
@@ -22,7 +22,7 @@ fs.readdirSync(__dirname + '/app/models').forEach(function (file) {
 });
 
 // Bootstrap passport config
-require('./config/passport')(passport, config);
+require('./config/passport')(passport, env);
 
 // Bootstrap application settings
 require('./config/express')(app, passport);
