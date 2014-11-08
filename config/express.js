@@ -12,6 +12,7 @@ var cookieSession = require('cookie-session');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var csrf = require('csurf');
+var swig = require('swig');
 
 var mongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
@@ -53,6 +54,25 @@ module.exports = function (app, passport) {
   // Don't log during tests
   // Logging middleware
   if (env !== 'test') app.use(morgan(log));
+
+  // Swig templating engine settings
+  if (env === 'development' || env === 'test') {
+    swig.setDefaults({
+      cache: false
+    });
+  }
+
+  // set views path, template engine and default layout
+  app.engine('html', swig.renderFile);
+  app.set('views', configEnv.root + '/app/views');
+  app.set('view engine', 'html');
+
+  // expose package.json to views
+  app.use(function (req, res, next) {
+    res.locals.pkg = pkg;
+    res.locals.env = env;
+    next();
+  });
 
   // bodyParser should be above methodOverride
   app.use(bodyParser.json());
@@ -100,32 +120,5 @@ module.exports = function (app, passport) {
       next();
     });
   }
-
-  // catch 404 and forward to error handler
-  app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
-
-  // development error handler, will print stacktrace
-  if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-      res.status(err.status || 500);
-      res.send({
-        message: err.message,
-        error: err
-      });
-    });
-  }
-
-  // production error handler, no stacktraces leaked to user
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.send({
-      message: err.message,
-      error: {}
-    });
-  });
 };
 
