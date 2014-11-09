@@ -27,14 +27,18 @@ module.exports = function (app, passport) {
     }
     console.error(err.stack);
     // error page
-    res.status(500).render('500', { error: err.stack });
+    res.status(500).json({ error: err.stack });
   });
 
   // assume 404 since no middleware responded
   app.use(function (req, res, next) {
-    res.status(404).render('404', {
+    res.status(404).json({
       url: req.originalUrl,
       error: 'Not found'
     });
+  });
+
+  app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
   });
 };
