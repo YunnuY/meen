@@ -11,7 +11,7 @@ export default Ember.ObjectController.extend({
         console.log('signup saved ok:', data);
       }, function(data) {
         console.log('signup saved fail:', data);
-        _this.set('error', data.responseJSON.message || 'sorry, signup failed.');
+        _this.set('error', data.responseJSON.error || 'sorry, signup failed.');
       });
     }
   }

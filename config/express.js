@@ -36,6 +36,14 @@ module.exports = function (app, passport) {
   // Static files middleware
   app.use(express.static(path.join(__dirname, '../public/dist')));
 
+  app.use(function (req, res, next) {
+    if(!req.is('json')) {
+      res.sendFile(path.join(__dirname, '../public/dist/index.html'));
+    } else {
+      next();
+    }
+  });
+
   // Use winston on production
   var log;
   if (env !== 'development') {

@@ -37,8 +37,4 @@ module.exports = function (app, passport) {
       error: 'Not found'
     });
   });
-
-  app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public/dist/index.html'));
-  });
 };
