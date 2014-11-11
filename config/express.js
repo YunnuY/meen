@@ -99,14 +99,14 @@ module.exports = function (app, passport) {
   app.use(helpers(pkg.name));
 
   // adds CSRF support
-  if (process.env.NODE_ENV !== 'test') {
-    app.use(csrf());
+  // if (process.env.NODE_ENV !== 'test') {
+  //   app.use(csrf());
 
-    // This could be moved to view-helpers :-)
-    app.use(function(req, res, next){
-      res.locals.csrf_token = req.csrfToken();
-      next();
-    });
-  }
+  //   // This could be moved to view-helpers :-)
+  //   app.use(function(req, res, next){
+  //     res.locals.csrf_token = req.csrfToken();
+  //     next();
+  //   });
+  // }
 };
 
