@@ -1,40 +1,14 @@
-
-/**
- * Module dependencies.
- */
-
 var mongoose = require('mongoose');
-var home = require('../app/controllers/home');
-
-/**
- * Expose
- */
+var users = require('../app/routes/users');
 
 module.exports = function (app, passport) {
+  app.use('/users', users);
 
-  app.get('/', home.index);
-
-  /**
-   * Error handling
-   */
-
+  // error handling
   app.use(function (err, req, res, next) {
-    // treat as 404
-    if (err.message
-      && (~err.message.indexOf('not found')
-      || (~err.message.indexOf('Cast to ObjectId failed')))) {
-      return next();
+    if (err.message) {
+      console.error(err.stack);
+      res.status(500).json({ error: err.stack });
     }
-    console.error(err.stack);
-    // error page
-    res.status(500).json({ error: err.stack });
-  });
-
-  // assume 404 since no middleware responded
-  app.use(function (req, res, next) {
-    res.status(404).json({
-      url: req.originalUrl,
-      error: 'Not found'
-    });
   });
 };

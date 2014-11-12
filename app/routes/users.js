@@ -1,17 +1,13 @@
+var Status = require('http-status');
 var express = require('express');
+var users = require('../controllers/users');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res) {
-  res.send({
-    users: [{
-      id: 1,
-      name: 'user1'
-    }, {
-      id: 2,
-      name: 'user2'
-    }]
-  });
+router.use(function(req, res, next) {
+  console.log('routes/users.js:');
+  next();
 });
+
+router.post('/', users.create);
 
 module.exports = router;
