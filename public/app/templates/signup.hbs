@@ -1,6 +1,7 @@
 <form {{action "signup" on="submit"}} class="form-signin" role="form">
   <h2 class="form-signin-heading">welcome sign up</h2>
   {{input type="email" value=email class="form-control" placeholder="Email address" required=true autofocus=true}}
+  {{input type="text" value=name class="form-control" placeholder="Name" required=true}}
   {{input type="password" value=password class="form-control" placeholder="Password" required=true}}
   {{input type="password" value=confirm class="form-control" placeholder="Confirm password" required=true}}
   <br/>

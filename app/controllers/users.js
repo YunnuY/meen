@@ -25,6 +25,7 @@ exports.create = function (req, res) {
         title: 'Sign up'
       });
     }
+    return res.status(201).json(req.body);
   });
 };
 
