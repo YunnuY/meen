@@ -15,7 +15,7 @@ exports.load = function (req, res, next, id) {
 };
 
 exports.create = function (req, res) {
-  var user = new User(req.body);
+  var user = new User(req.body.user);
   user.provider = 'local';
   user.save(function (err) {
     if (err) {
