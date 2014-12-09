@@ -1,10 +1,8 @@
-
-/**
- * Expose
- */
+var path = require('path');
 
 module.exports = {
-  db: 'mongodb://localhost/your_project_development',
+  root: path.normalize(__dirname + '/..'),
+  db: 'mongodb://localhost/meen',
   facebook: {
     clientID: 'APP_ID',
     clientSecret: 'SECRET',

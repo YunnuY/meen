@@ -2,7 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var env = require('./config/env');
+var env = require('./config/enviroment');
 
 var app = express();
 

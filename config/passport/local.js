@@ -5,7 +5,7 @@
 
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
-var env = require('../env.js');
+var env = require('../enviroment.js');
 var User = mongoose.model('User');
 
 /**

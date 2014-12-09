@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 
 var mongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
-var env = require('./env.js');
+var env = require('./enviroment.js');
 var pkg = require('../package.json');
 
 /**
