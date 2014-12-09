@@ -6,6 +6,9 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:oauth2-bearer'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
