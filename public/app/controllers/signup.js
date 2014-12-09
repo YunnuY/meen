@@ -8,9 +8,10 @@ export default Ember.ObjectController.extend({
       var _this = this;
 
       this.get('model').save().then(function(data) {
-        console.log('signup saved ok:', data);
+        alert('signup saved ok! redirect to signin');
+        _this.transitionToRoute('signin');
       }, function(data) {
-        console.log('signup saved fail:', data);
+        alert('signup saved fail!');
         _this.set('error', data.responseJSON.error || 'sorry, signup failed.');
       });
     }
