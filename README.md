@@ -1,5 +1,7 @@
 ![MEEN.JS](/public/public/assets/images/meen.png)
 
+## MEEN is deprecated, please see [sane](https://github.com/artificialio/sane) which has same goal but go further.
+
 Mongo-Ember-Express-Node full-stack javascript open-source solution.
 
 After being an ember and rails developer for some time, i find that pure javascript solutions is more and more attractive. 
